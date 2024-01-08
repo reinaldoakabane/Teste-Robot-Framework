@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20231031 10:53:00.948" rpa="false" schemaversion="3">
+<suite id="s1" name="Login" source="C:\Users\Raquel\Documents\AHoney\CARREIRA\ROBOT\Dr Consulta\testes\login.robot">
+<kw name="Inicio Login" library="setup" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231031 10:53:01.535" level="INFO">Opening browser 'googlechrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20231031 10:53:01.535" endtime="20231031 10:53:04.647"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231031 10:53:04.647" endtime="20231031 10:53:04.799"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231031 10:53:09.801" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231031 10:53:04.799" endtime="20231031 10:53:09.801"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:01.534" endtime="20231031 10:53:09.801"/>
+</kw>
+<test id="s1-t1" name="Cenário 01: Usuário realiza login com credenciais válidas" line="21">
+<kw name="Inicio Teste Login" library="setup" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231031 10:53:09.810" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<status status="PASS" starttime="20231031 10:53:09.810" endtime="20231031 10:53:13.716"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.1</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231031 10:53:13.717" endtime="20231031 10:53:13.717"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:13.717" endtime="20231031 10:53:13.964"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:13.964" endtime="20231031 10:53:14.197"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:09.810" endtime="20231031 10:53:14.197"/>
+</kw>
+<kw name="Quando o usuário insere username válido" library="login_valido">
+<arg>${USERNAME}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:14.198" level="INFO">Clicking element 'user-name'.</msg>
+<status status="PASS" starttime="20231031 10:53:14.198" endtime="20231031 10:53:14.474"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:14.475" level="INFO">Typing text 'standard_user' into text field 'user-name'.</msg>
+<status status="PASS" starttime="20231031 10:53:14.474" endtime="20231031 10:53:14.890"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:14.197" endtime="20231031 10:53:14.890"/>
+</kw>
+<kw name="E um password válido" library="login_valido">
+<arg>${PASSWORD}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:14.891" level="INFO">Clicking element 'password'.</msg>
+<status status="PASS" starttime="20231031 10:53:14.890" endtime="20231031 10:53:15.150"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:15.150" level="INFO">Typing text 'secret_sauce' into text field 'password'.</msg>
+<status status="PASS" starttime="20231031 10:53:15.150" endtime="20231031 10:53:15.539"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:14.890" endtime="20231031 10:53:15.539"/>
+</kw>
+<kw name="E o usuário clica no botão para logar" library="login_valido">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTT_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:15.540" level="INFO">Clicking button '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20231031 10:53:15.539" endtime="20231031 10:53:15.981"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:15.539" endtime="20231031 10:53:15.981"/>
+</kw>
+<kw name="Então o usuário deve ser redirecionado para a página inicial" library="login_valido">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${PRODUCTS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:15.982" endtime="20231031 10:53:16.206"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:15.981" endtime="20231031 10:53:16.206"/>
+</kw>
+<kw name="Final Teste Login" library="setup" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231031 10:53:16.446" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231031 10:53:16.207" endtime="20231031 10:53:16.447"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:16.207" endtime="20231031 10:53:16.447"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:09.808" endtime="20231031 10:53:16.447"/>
+</test>
+<test id="s1-t2" name="Cenário 02: Usuário realiza login com credenciais inválidas" line="27">
+<kw name="Inicio Teste Login" library="setup" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231031 10:53:16.450" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<status status="PASS" starttime="20231031 10:53:16.450" endtime="20231031 10:53:16.675"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.1</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231031 10:53:16.675" endtime="20231031 10:53:16.675"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:16.675" endtime="20231031 10:53:16.899"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:16.899" endtime="20231031 10:53:17.120"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:16.450" endtime="20231031 10:53:17.120"/>
+</kw>
+<kw name="Quando o usuário insere username inválido" library="login_invalido">
+<arg>${USERNAME}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:17.122" level="INFO">Clicking element 'user-name'.</msg>
+<status status="PASS" starttime="20231031 10:53:17.121" endtime="20231031 10:53:17.380"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<arg>abcd</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:17.380" level="INFO">Typing text 'abcd' into text field 'user-name'.</msg>
+<status status="PASS" starttime="20231031 10:53:17.380" endtime="20231031 10:53:17.755"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:17.121" endtime="20231031 10:53:17.755"/>
+</kw>
+<kw name="E um password inválido" library="login_invalido">
+<arg>${PASSWORD}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:17.757" level="INFO">Clicking element 'password'.</msg>
+<status status="PASS" starttime="20231031 10:53:17.755" endtime="20231031 10:53:18.010"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<arg>dcba</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:18.010" level="INFO">Typing text 'dcba' into text field 'password'.</msg>
+<status status="PASS" starttime="20231031 10:53:18.010" endtime="20231031 10:53:18.388"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:17.755" endtime="20231031 10:53:18.388"/>
+</kw>
+<kw name="E o usuário clica no botão de login" library="login_invalido">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTT_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:18.389" level="INFO">Clicking button '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20231031 10:53:18.388" endtime="20231031 10:53:18.760"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:18.388" endtime="20231031 10:53:18.760"/>
+</kw>
+<kw name="Então aplicação deve apresentar mensagem de erro" library="login_invalido">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${MSG_ERROR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:18.761" endtime="20231031 10:53:18.987"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:18.761" endtime="20231031 10:53:18.987"/>
+</kw>
+<kw name="Final Teste Login" library="setup" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231031 10:53:19.185" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231031 10:53:18.988" endtime="20231031 10:53:19.185"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:18.988" endtime="20231031 10:53:19.186"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:16.449" endtime="20231031 10:53:19.186"/>
+</test>
+<test id="s1-t3" name="Cenário 03: Usuário realiza login com campo username em branco" line="33">
+<kw name="Inicio Teste Login" library="setup" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231031 10:53:19.189" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<status status="PASS" starttime="20231031 10:53:19.189" endtime="20231031 10:53:19.368"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.1</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231031 10:53:19.368" endtime="20231031 10:53:19.368"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:19.368" endtime="20231031 10:53:19.590"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:19.590" endtime="20231031 10:53:19.811"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:19.189" endtime="20231031 10:53:19.811"/>
+</kw>
+<kw name="Quando o usuário deixa username em branco" library="login_username_em_branco">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:19.813" level="INFO">Clicking element 'user-name'.</msg>
+<status status="PASS" starttime="20231031 10:53:19.812" endtime="20231031 10:53:20.080"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:19.812" endtime="20231031 10:53:20.080"/>
+</kw>
+<kw name="E informa um password" library="login_username_em_branco">
+<arg>${PASSWORD}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:20.083" level="INFO">Clicking element 'password'.</msg>
+<status status="PASS" starttime="20231031 10:53:20.082" endtime="20231031 10:53:20.357"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<arg>dcba</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:20.358" level="INFO">Typing text 'dcba' into text field 'password'.</msg>
+<status status="PASS" starttime="20231031 10:53:20.357" endtime="20231031 10:53:20.835"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:20.081" endtime="20231031 10:53:20.835"/>
+</kw>
+<kw name="E o usuário clica no botão de logar" library="login_username_em_branco">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTT_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:20.838" level="INFO">Clicking button '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20231031 10:53:20.838" endtime="20231031 10:53:21.234"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:20.837" endtime="20231031 10:53:21.234"/>
+</kw>
+<kw name="Então aplicação apresenta mensagem informando que username em branco" library="login_username_em_branco">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MSG_ERROR}</arg>
+<arg>Epic sadface: Username is required</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231031 10:53:21.238" level="INFO">Verifying element '//*[@id="login_button_container"]/div/form/div[3]/h3' contains exact text 'Epic sadface: Username is required'.</msg>
+<status status="PASS" starttime="20231031 10:53:21.236" endtime="20231031 10:53:21.485"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:21.235" endtime="20231031 10:53:21.485"/>
+</kw>
+<kw name="Final Teste Login" library="setup" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231031 10:53:21.721" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231031 10:53:21.491" endtime="20231031 10:53:21.721"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:21.490" endtime="20231031 10:53:21.721"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:19.188" endtime="20231031 10:53:21.722"/>
+</test>
+<test id="s1-t4" name="Cenário 04: Usuário realiza login com campo password em branco" line="39">
+<kw name="Inicio Teste Login" library="setup" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231031 10:53:21.727" level="INFO">Opening url 'https://www.saucedemo.com/'</msg>
+<status status="PASS" starttime="20231031 10:53:21.726" endtime="20231031 10:53:21.927"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.1</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231031 10:53:21.927" endtime="20231031 10:53:21.927"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:21.928" endtime="20231031 10:53:22.228"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 10:53:22.228" endtime="20231031 10:53:22.505"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:21.725" endtime="20231031 10:53:22.505"/>
+</kw>
+<kw name="Quando o usuário insere username" library="login_password_em_branco ">
+<arg>${USERNAME}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:22.507" level="INFO">Clicking element 'user-name'.</msg>
+<status status="PASS" starttime="20231031 10:53:22.506" endtime="20231031 10:53:22.782"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ELT_USERNAME}</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:22.783" level="INFO">Typing text 'standard_user' into text field 'user-name'.</msg>
+<status status="PASS" starttime="20231031 10:53:22.782" endtime="20231031 10:53:23.212"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:22.506" endtime="20231031 10:53:23.212"/>
+</kw>
+<kw name="E o usuário deixa password em branco" library="login_password_em_branco ">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ELT_PASSWORD}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:23.213" level="INFO">Clicking element 'password'.</msg>
+<status status="PASS" starttime="20231031 10:53:23.213" endtime="20231031 10:53:23.473"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:23.212" endtime="20231031 10:53:23.473"/>
+</kw>
+<kw name="E o usuário clica no botão para fazer o login" library="login_password_em_branco ">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BTT_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231031 10:53:23.475" level="INFO">Clicking button '//*[@id="login-button"]'.</msg>
+<status status="PASS" starttime="20231031 10:53:23.474" endtime="20231031 10:53:23.888"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:23.474" endtime="20231031 10:53:23.888"/>
+</kw>
+<kw name="Então aplicação apresenta mensagem informando que password em branco" library="login_password_em_branco ">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MSG_ERROR}</arg>
+<arg>Epic sadface: Password is required</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20231031 10:53:23.890" level="INFO">Verifying element '//*[@id="login_button_container"]/div/form/div[3]/h3' contains exact text 'Epic sadface: Password is required'.</msg>
+<status status="PASS" starttime="20231031 10:53:23.889" endtime="20231031 10:53:24.119"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:23.888" endtime="20231031 10:53:24.119"/>
+</kw>
+<kw name="Final Teste Login" library="setup" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231031 10:53:24.383" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231031 10:53:24.120" endtime="20231031 10:53:24.383"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:24.120" endtime="20231031 10:53:24.383"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:21.724" endtime="20231031 10:53:24.384"/>
+</test>
+<kw name="Fim Login" library="setup" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20231031 10:53:24.387" endtime="20231031 10:53:27.185"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:24.386" endtime="20231031 10:53:27.186"/>
+</kw>
+<status status="PASS" starttime="20231031 10:53:00.952" endtime="20231031 10:53:27.186"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Login">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
